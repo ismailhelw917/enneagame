@@ -127,26 +127,26 @@ function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="flex flex-col h-full items-center justify-start pt-24 p-4"
+              className="flex flex-col h-full items-center justify-start pt-20 p-4"
             >
-              <div className="text-center max-w-2xl mx-auto space-y-2 mb-4">
-                <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-white uppercase">
-                  Enneagram Gaming Theory
+              <div className="text-center max-w-3xl mx-auto space-y-2 mb-10 relative z-20">
+                <h1 className="text-2xl md:text-4xl font-black tracking-tight text-white uppercase italic leading-none">
+                  Enneagram <span className="text-cyan-500">Gaming</span> Theory
                 </h1>
               </div>
 
               {/* Enneagram Geometry */}
-              <div className="flex flex-col items-center justify-center flex-1 w-full max-h-[60vh]">
-                <div className="relative w-full max-w-md aspect-square">
-                  <svg viewBox="-180 -180 360 360" className="w-full h-full drop-shadow-2xl">
+              <div className="flex flex-col items-center justify-center flex-1 w-full max-h-[65vh] relative z-10">
+                <div className="relative w-full max-w-2xl aspect-square">
+                  <svg viewBox="-300 -300 600 600" className="w-full h-full drop-shadow-2xl overflow-visible">
                     {/* Circle */}
-                    <circle cx="0" cy="0" r="100" fill="none" stroke="currentColor" strokeWidth="1" className="text-white/20" />
+                    <circle cx="0" cy="0" r="150" fill="none" stroke="currentColor" strokeWidth="1" className="text-white/20" />
                     
                     {/* Triangle (9-6-3) */}
                     <path 
-                      d={`M ${100 * Math.cos((9 * 40 - 90) * Math.PI / 180)} ${100 * Math.sin((9 * 40 - 90) * Math.PI / 180)} 
-                          L ${100 * Math.cos((6 * 40 - 90) * Math.PI / 180)} ${100 * Math.sin((6 * 40 - 90) * Math.PI / 180)} 
-                          L ${100 * Math.cos((3 * 40 - 90) * Math.PI / 180)} ${100 * Math.sin((3 * 40 - 90) * Math.PI / 180)} Z`}
+                      d={`M ${150 * Math.cos((9 * 40 - 90) * Math.PI / 180)} ${150 * Math.sin((9 * 40 - 90) * Math.PI / 180)} 
+                          L ${150 * Math.cos((6 * 40 - 90) * Math.PI / 180)} ${150 * Math.sin((6 * 40 - 90) * Math.PI / 180)} 
+                          L ${150 * Math.cos((3 * 40 - 90) * Math.PI / 180)} ${150 * Math.sin((3 * 40 - 90) * Math.PI / 180)} Z`}
                       fill="none" 
                       stroke="currentColor" 
                       strokeWidth="1" 
@@ -155,49 +155,48 @@ function App() {
 
                     {/* Hexad (1-4-2-8-5-7) */}
                     <path 
-                      d={`M ${100 * Math.cos((1 * 40 - 90) * Math.PI / 180)} ${100 * Math.sin((1 * 40 - 90) * Math.PI / 180)} 
-                          L ${100 * Math.cos((4 * 40 - 90) * Math.PI / 180)} ${100 * Math.sin((4 * 40 - 90) * Math.PI / 180)} 
-                          L ${100 * Math.cos((2 * 40 - 90) * Math.PI / 180)} ${100 * Math.sin((2 * 40 - 90) * Math.PI / 180)} 
-                          L ${100 * Math.cos((8 * 40 - 90) * Math.PI / 180)} ${100 * Math.sin((8 * 40 - 90) * Math.PI / 180)} 
-                          L ${100 * Math.cos((5 * 40 - 90) * Math.PI / 180)} ${100 * Math.sin((5 * 40 - 90) * Math.PI / 180)} 
-                          L ${100 * Math.cos((7 * 40 - 90) * Math.PI / 180)} ${100 * Math.sin((7 * 40 - 90) * Math.PI / 180)} Z`}
+                      d={`M ${150 * Math.cos((1 * 40 - 90) * Math.PI / 180)} ${150 * Math.sin((1 * 40 - 90) * Math.PI / 180)} 
+                          L ${150 * Math.cos((4 * 40 - 90) * Math.PI / 180)} ${150 * Math.sin((4 * 40 - 90) * Math.PI / 180)} 
+                          L ${150 * Math.cos((2 * 40 - 90) * Math.PI / 180)} ${150 * Math.sin((2 * 40 - 90) * Math.PI / 180)} 
+                          L ${150 * Math.cos((8 * 40 - 90) * Math.PI / 180)} ${150 * Math.sin((8 * 40 - 90) * Math.PI / 180)} 
+                          L ${150 * Math.cos((5 * 40 - 90) * Math.PI / 180)} ${150 * Math.sin((5 * 40 - 90) * Math.PI / 180)} 
+                          L ${150 * Math.cos((7 * 40 - 90) * Math.PI / 180)} ${150 * Math.sin((7 * 40 - 90) * Math.PI / 180)} Z`}
                       fill="none" 
                       stroke="currentColor" 
                       strokeWidth="1" 
                       className="text-white/20"
                     />
 
-                    {/* Points */}
+                    {/* Geometry Points & Nodes */}
                     {enneagramData.map((type) => {
                       const angle = (type.id * 40 - 90) * Math.PI / 180;
-                      const x = 100 * Math.cos(angle);
-                      const y = 100 * Math.sin(angle);
+                      const x = 150 * Math.cos(angle);
+                      const y = 150 * Math.sin(angle);
                       
-                      // Manual label positioning for perfect spacing
                       const labelConfig: Record<number, {x: number, y: number, align: string}> = {
-                        1: { x: 90, y: -80, align: "start" },
-                        2: { x: 130, y: -10, align: "start" },
-                        3: { x: 120, y: 60, align: "start" },
-                        4: { x: 60, y: 130, align: "middle" },
-                        5: { x: -60, y: 130, align: "middle" },
-                        6: { x: -120, y: 60, align: "end" },
-                        7: { x: -130, y: -10, align: "end" },
-                        8: { x: -90, y: -80, align: "end" },
-                        9: { x: 0, y: -135, align: "middle" }
+                        1: { x: 180, y: -180, align: "start" },
+                        2: { x: 230, y: -40, align: "start" },
+                        3: { x: 210, y: 110, align: "start" },
+                        4: { x: 100, y: 220, align: "middle" },
+                        5: { x: -100, y: 220, align: "middle" },
+                        6: { x: -210, y: 110, align: "end" },
+                        7: { x: -230, y: -40, align: "end" },
+                        8: { x: -180, y: -180, align: "end" },
+                        9: { x: 0, y: -198, align: "middle" }
                       };
 
                       const config = labelConfig[type.id];
 
                       return (
-                        <g key={type.id} onClick={() => setSelectedType(type.id)} className="cursor-pointer group">
+                        <g key={`node-${type.id}`} onClick={() => setSelectedType(type.id)} className="cursor-pointer group">
                           {/* Connecting Line to Label */}
-                          <line x1={x} y1={y} x2={config.x} y2={config.y} stroke="currentColor" strokeWidth="1" className="text-white/10 group-hover:text-cyan-500/50 transition-colors" />
+                          <line x1={x} y1={y} x2={config.x} y2={config.y} stroke="currentColor" strokeWidth="1" className="text-white/5 group-hover:text-cyan-500/30 transition-colors" />
                           
                           {/* Node Circle */}
                           <circle 
                             cx={x} 
                             cy={y} 
-                            r="12" 
+                            r="18" 
                             className={`fill-[#050505] stroke-2 transition-all duration-300 ${
                               type.center === 'Head' ? 'stroke-cyan-500 group-hover:fill-cyan-900' : 
                               type.center === 'Heart' ? 'stroke-yellow-500 group-hover:fill-yellow-900' : 
@@ -211,29 +210,48 @@ function App() {
                             y={y} 
                             dy="0.35em" 
                             textAnchor="middle" 
-                            className="fill-white text-[10px] font-mono font-bold pointer-events-none"
+                            className="fill-white text-[12px] font-mono font-bold pointer-events-none"
                           >
                             {type.id}
                           </text>
-
-                          {/* Label */}
-                          <foreignObject 
-                            x={config.align === 'middle' ? config.x - 60 : config.align === 'end' ? config.x - 120 : config.x} 
-                            y={config.y - 10} 
-                            width="120" 
-                            height="20"
-                          >
-                            <div className={`text-[10px] font-mono font-bold transition-all duration-300 ${
-                              type.center === 'Head' ? 'text-cyan-500' : 
-                              type.center === 'Heart' ? 'text-yellow-500' : 
-                              'text-red-500'
-                            } opacity-60 group-hover:opacity-100 group-hover:scale-110 truncate ${
-                              config.align === 'middle' ? 'text-center' : config.align === 'end' ? 'text-right' : 'text-left'
-                            }`}>
-                              {type.name.toUpperCase()}
-                            </div>
-                          </foreignObject>
                         </g>
+                      );
+                    })}
+
+                    {/* Labels Layer (Rendered last to be on top) */}
+                    {enneagramData.map((type) => {
+                      const labelConfig: Record<number, {x: number, y: number, align: string}> = {
+                        1: { x: 180, y: -180, align: "start" },
+                        2: { x: 230, y: -40, align: "start" },
+                        3: { x: 210, y: 110, align: "start" },
+                        4: { x: 100, y: 220, align: "middle" },
+                        5: { x: -100, y: 220, align: "middle" },
+                        6: { x: -210, y: 110, align: "end" },
+                        7: { x: -230, y: -40, align: "end" },
+                        8: { x: -180, y: -180, align: "end" },
+                        9: { x: 0, y: -198, align: "middle" }
+                      };
+                      const config = labelConfig[type.id];
+
+                      return (
+                        <foreignObject 
+                          key={`label-${type.id}`}
+                          x={config.align === 'middle' ? config.x - 125 : config.align === 'end' ? config.x - 250 : config.x} 
+                          y={config.y - 12} 
+                          width="250" 
+                          height="32"
+                          className="pointer-events-none"
+                        >
+                          <div className={`text-[10px] md:text-xs font-mono font-bold transition-all duration-300 ${
+                            type.center === 'Head' ? 'text-cyan-500' : 
+                            type.center === 'Heart' ? 'text-yellow-500' : 
+                            'text-red-500'
+                          } opacity-90 whitespace-nowrap ${
+                            config.align === 'middle' ? 'text-center' : config.align === 'end' ? 'text-right pr-4' : 'text-left pl-4'
+                          }`}>
+                            {type.name.toUpperCase()}
+                          </div>
+                        </foreignObject>
                       );
                     })}
                   </svg>
@@ -250,7 +268,7 @@ function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="flex flex-col h-full overflow-y-auto p-4"
+              className="flex flex-col h-full overflow-y-auto pt-20 p-4"
             >
               <StrategyPage />
             </motion.div>
@@ -260,7 +278,7 @@ function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="flex flex-col h-full overflow-y-auto p-4"
+              className="flex flex-col h-full overflow-y-auto pt-20 p-4"
             >
               {!selectedGame ? (
                 <div className="max-w-7xl mx-auto w-full space-y-6">
