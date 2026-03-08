@@ -92,40 +92,40 @@ function App() {
       ) : (
         <>
           {/* Header */}
-          <header className="border-b border-white/10 bg-[#0a0a0a]/80 backdrop-blur-md sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 cursor-pointer" onClick={() => { setActiveTab('synthesis'); setSelectedGame(null); }}>
+      <header className="border-b border-white/10 bg-[#0a0a0a]/80 backdrop-blur-md sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
+          <Link to="/" className="flex items-center gap-2 cursor-pointer shrink-0" onClick={() => { setActiveTab('about'); setSelectedGame(null); }}>
             <Target className="w-6 h-6 text-cyan-500" />
-            <span className="font-mono font-bold tracking-tighter text-xl">Enneagram & Games</span>
+            <span className="font-mono font-bold tracking-tighter text-lg sm:text-xl hidden xs:block">Enneagram & Games</span>
           </Link>
-          <nav className="flex gap-1 bg-white/5 p-1 rounded-lg overflow-x-auto no-scrollbar">
+          <nav className="flex gap-1 bg-white/5 p-1 rounded-lg overflow-x-auto no-scrollbar scroll-smooth">
             <button
               onClick={() => { setActiveTab('about'); setSelectedGame(null); }}
-              className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all whitespace-nowrap ${activeTab === 'about' ? 'bg-white/10 text-white shadow-sm' : 'text-gray-400 hover:text-white'}`}
+              className={`px-3 sm:px-4 py-1.5 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeTab === 'about' ? 'bg-white/10 text-white shadow-sm' : 'text-gray-400 hover:text-white'}`}
             >
               About
             </button>
             <button
               onClick={() => { setActiveTab('synthesis'); setSelectedGame(null); }}
-              className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all whitespace-nowrap ${activeTab === 'synthesis' ? 'bg-white/10 text-white shadow-sm' : 'text-gray-400 hover:text-white'}`}
+              className={`px-3 sm:px-4 py-1.5 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeTab === 'synthesis' ? 'bg-white/10 text-white shadow-sm' : 'text-gray-400 hover:text-white'}`}
             >
               Synthesis
             </button>
             <button
               onClick={() => { setActiveTab('strategy'); setSelectedGame(null); }}
-              className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all whitespace-nowrap ${activeTab === 'strategy' ? 'bg-white/10 text-white shadow-sm' : 'text-gray-400 hover:text-white'}`}
+              className={`px-3 sm:px-4 py-1.5 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeTab === 'strategy' ? 'bg-white/10 text-white shadow-sm' : 'text-gray-400 hover:text-white'}`}
             >
               Strategy
             </button>
             <button
               onClick={() => { setActiveTab('games'); setSelectedGame(null); }}
-              className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all whitespace-nowrap ${activeTab === 'games' ? 'bg-white/10 text-white shadow-sm' : 'text-gray-400 hover:text-white'}`}
+              className={`px-3 sm:px-4 py-1.5 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeTab === 'games' ? 'bg-white/10 text-white shadow-sm' : 'text-gray-400 hover:text-white'}`}
             >
               Games
             </button>
             <button
               onClick={() => { setActiveTab('chatbot'); setSelectedGame(null); }}
-              className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all whitespace-nowrap ${activeTab === 'chatbot' ? 'bg-white/10 text-white shadow-sm' : 'text-gray-400 hover:text-white'}`}
+              className={`px-3 sm:px-4 py-1.5 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeTab === 'chatbot' ? 'bg-white/10 text-white shadow-sm' : 'text-gray-400 hover:text-white'}`}
             >
               AI Guide
             </button>
@@ -161,17 +161,17 @@ function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="flex flex-col h-full items-center justify-start pt-20 p-4"
+              className="flex flex-col h-full items-center justify-start pt-6 md:pt-20 p-4 overflow-y-auto"
             >
-              <div className="text-center max-w-3xl mx-auto space-y-2 mb-10 relative z-20">
-                <h1 className="text-2xl md:text-4xl font-black tracking-tight text-white uppercase italic leading-none">
+              <div className="text-center max-w-3xl mx-auto space-y-2 mb-6 md:mb-10 relative z-20">
+                <h1 className="text-xl md:text-4xl font-black tracking-tight text-white uppercase italic leading-none">
                   Enneagram <span className="text-cyan-500">Gaming</span> Theory
                 </h1>
               </div>
 
               {/* Enneagram Geometry */}
-              <div className="flex flex-col items-center justify-center flex-1 w-full max-h-[65vh] relative z-10">
-                <div className="relative w-full max-w-2xl aspect-square">
+              <div className="flex flex-col items-center justify-center flex-1 w-full max-h-[50vh] md:max-h-[65vh] relative z-10">
+                <div className="relative w-full max-w-lg md:max-w-2xl aspect-square">
                   <svg viewBox="-300 -300 600 600" className="w-full h-full drop-shadow-2xl overflow-visible">
                     {/* Circle */}
                     <circle cx="0" cy="0" r="150" fill="none" stroke="currentColor" strokeWidth="1" className="text-white/20" />
@@ -302,7 +302,7 @@ function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="flex flex-col h-full overflow-y-auto pt-20 p-4"
+              className="flex flex-col h-full overflow-y-auto pt-6 md:pt-20 p-4"
             >
               <StrategyPage />
             </motion.div>
@@ -312,7 +312,7 @@ function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="flex flex-col h-full overflow-y-auto pt-20 p-4"
+              className="flex flex-col h-full overflow-y-auto pt-6 md:pt-20 p-4"
             >
               {!selectedGame ? (
                 <div className="max-w-7xl mx-auto w-full space-y-6">
@@ -384,8 +384,8 @@ function App() {
                     BACK TO SELECTION
                   </button>
 
-                  <div className="flex flex-col md:flex-row gap-8 items-start">
-                    <div className="w-full md:w-1/3 space-y-6">
+                  <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                    <div className="w-full md:w-1/3 space-y-4 md:space-y-6">
                       <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl aspect-square relative flex items-center justify-center bg-[#050505]">
                          {/* Logo-style display for detail view */}
                          <img 
@@ -394,42 +394,42 @@ function App() {
                             className="absolute inset-0 w-full h-full object-cover opacity-30 blur-md"
                             referrerPolicy="no-referrer"
                           />
-                          <div className="relative z-10 text-center p-8">
-                             <h1 className="text-4xl md:text-5xl font-black text-white tracking-tighter uppercase leading-none mb-4 drop-shadow-2xl">
+                          <div className="relative z-10 text-center p-6 md:p-8">
+                             <h1 className="text-3xl md:text-5xl font-black text-white tracking-tighter uppercase leading-none mb-4 drop-shadow-2xl">
                                {selectedGame.game}
                              </h1>
-                             <span className="text-sm font-mono text-cyan-400 bg-cyan-950/80 px-3 py-1 rounded border border-cyan-500/30">
+                             <span className="text-xs md:text-sm font-mono text-cyan-400 bg-cyan-950/80 px-3 py-1 rounded border border-cyan-500/30">
                                {selectedGame.genre}
                              </span>
                           </div>
                       </div>
                       <div>
-                        <p className="text-gray-400 leading-relaxed text-sm border-l-2 border-white/10 pl-4">
+                        <p className="text-gray-400 leading-relaxed text-xs md:text-sm border-l-2 border-white/10 pl-4">
                           {selectedGame.description}
                         </p>
                       </div>
                     </div>
 
-                    <div className="w-full md:w-2/3 grid gap-4">
-                      <h2 className="text-xl font-bold text-white flex items-center gap-2 border-b border-white/10 pb-4">
+                    <div className="w-full md:w-2/3 grid gap-3 md:gap-4">
+                      <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2 border-b border-white/10 pb-4">
                         <Crosshair className="w-5 h-5 text-cyan-500" />
                         Type-Specific Tactics
                       </h2>
                       {selectedGame.advice.map((advice, i) => {
                         const type = enneagramData.find(t => t.id === advice.typeId);
                         return (
-                          <div key={i} className="flex gap-4 p-6 rounded-xl bg-[#0f0f0f] border border-white/5 hover:border-white/10 transition-colors group">
-                            <div className={`flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center font-mono font-bold text-2xl border bg-opacity-10 ${getCenterColor(type?.center || '')}`}>
+                          <div key={i} className="flex gap-3 md:gap-4 p-4 md:p-6 rounded-xl bg-[#0f0f0f] border border-white/5 hover:border-white/10 transition-colors group">
+                            <div className={`flex-shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center font-mono font-bold text-xl md:text-2xl border bg-opacity-10 ${getCenterColor(type?.center || '')}`}>
                               {type?.id}
                             </div>
                             <div>
-                              <div className="flex items-center gap-2 mb-2">
-                                <h4 className="font-bold text-gray-200 text-base">{type?.name}</h4>
-                                <span className="text-[10px] uppercase tracking-wider font-mono text-gray-500 bg-white/5 px-2 py-1 rounded">
+                              <div className="flex flex-wrap items-center gap-2 mb-1 md:mb-2">
+                                <h4 className="font-bold text-gray-200 text-sm md:text-base">{type?.name}</h4>
+                                <span className="text-[9px] md:text-[10px] uppercase tracking-wider font-mono text-gray-500 bg-white/5 px-2 py-0.5 md:py-1 rounded">
                                   {type?.gamingStyle.role.split('/')[0]}
                                 </span>
                               </div>
-                              <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
+                              <p className="text-xs md:text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
                                 {advice.tip}
                               </p>
                             </div>
@@ -457,25 +457,25 @@ function App() {
           >
             <motion.div
               layoutId={`card-${selectedType}`}
-              className="bg-[#111] border border-white/10 w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl"
+              className="bg-[#111] border border-white/10 w-full max-w-2xl rounded-none sm:rounded-2xl overflow-y-auto sm:overflow-hidden shadow-2xl h-full sm:h-auto"
               onClick={(e) => e.stopPropagation()}
             >
               {(() => {
                 const type = enneagramData.find(t => t.id === selectedType);
                 if (!type) return null;
                 return (
-                  <div>
-                    <div className={`h-2 w-full ${type.center === 'Head' ? 'bg-cyan-500' : type.center === 'Heart' ? 'bg-yellow-500' : 'bg-red-500'}`} />
-                    <div className="p-8 space-y-8">
+                  <div className="min-h-full flex flex-col">
+                    <div className={`h-1 sm:h-2 w-full shrink-0 ${type.center === 'Head' ? 'bg-cyan-500' : type.center === 'Heart' ? 'bg-yellow-500' : 'bg-red-500'}`} />
+                    <div className="p-6 sm:p-8 space-y-6 sm:space-y-8 flex-1">
                       <div className="flex justify-between items-start">
                         <div>
                           <div className="flex items-center gap-3 mb-2">
-                             <span className={`text-5xl font-mono font-bold ${getCenterColor(type.center).split(' ')[0]}`}>
+                             <span className={`text-4xl sm:text-5xl font-mono font-bold ${getCenterColor(type.center).split(' ')[0]}`}>
                                 {type.id}
                              </span>
                              <div className="space-y-1">
-                                <h2 className="text-2xl font-bold text-white leading-none">{type.name}</h2>
-                                <span className="text-xs font-mono text-gray-500 uppercase tracking-widest">
+                                <h2 className="text-xl sm:text-2xl font-bold text-white leading-none">{type.name}</h2>
+                                <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest">
                                   {type.center} Center
                                 </span>
                              </div>
@@ -486,36 +486,36 @@ function App() {
                           className="p-2 hover:bg-white/10 rounded-full transition-colors"
                         >
                           <span className="sr-only">Close</span>
-                          <svg className="w-6 h-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <svg className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                           </svg>
                         </button>
                       </div>
 
-                      <div className="space-y-6">
+                      <div className="space-y-5 sm:space-y-6">
                         <div className="bg-white/5 p-4 rounded-lg border border-white/5">
-                          <h3 className="text-xs font-mono text-gray-500 uppercase mb-2">Synthesis Source</h3>
-                          <p className="text-gray-300 leading-relaxed">{type.synthesis}</p>
+                          <h3 className="text-[10px] font-mono text-gray-500 uppercase mb-2">Synthesis Source</h3>
+                          <p className="text-sm sm:text-base text-gray-300 leading-relaxed">{type.synthesis}</p>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          <div className="space-y-2">
-                             <h3 className="text-xs font-mono text-green-500 uppercase flex items-center gap-2">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                          <div className="space-y-1 sm:space-y-2">
+                             <h3 className="text-[10px] font-mono text-green-500 uppercase flex items-center gap-2">
                                <Target className="w-3 h-3" /> Core Desire
                              </h3>
-                             <p className="text-sm text-gray-300">{type.coreDesire}</p>
+                             <p className="text-xs sm:text-sm text-gray-300">{type.coreDesire}</p>
                           </div>
-                          <div className="space-y-2">
-                             <h3 className="text-xs font-mono text-red-500 uppercase flex items-center gap-2">
+                          <div className="space-y-1 sm:space-y-2">
+                             <h3 className="text-[10px] font-mono text-red-500 uppercase flex items-center gap-2">
                                <Zap className="w-3 h-3" /> Core Fear
                              </h3>
-                             <p className="text-sm text-gray-300">{type.coreFear}</p>
+                             <p className="text-xs sm:text-sm text-gray-300">{type.coreFear}</p>
                           </div>
                         </div>
 
-                        <div className="border-t border-white/10 pt-6">
-                          <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                            <Sword className="w-5 h-5 text-cyan-500" />
+                        <div className="border-t border-white/10 pt-5 sm:pt-6">
+                          <h3 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4 flex items-center gap-2">
+                            <Sword className="w-4 h-4 sm:w-5 h-5 text-cyan-500" />
                             Combat Profile: {type.gamingStyle.role}
                           </h3>
                           

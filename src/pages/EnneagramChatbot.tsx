@@ -67,15 +67,15 @@ const EnneagramChatbot = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-6 h-[calc(100vh-6rem)] flex flex-col">
-      <div className="flex items-center justify-between mb-6">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-cyan-500/20 flex items-center justify-center border border-cyan-500/30">
-            <Bot className="text-cyan-400 w-6 h-6" />
+    <div className="max-w-6xl mx-auto px-2 sm:px-4 py-4 sm:py-6 h-[calc(100vh-4.5rem)] sm:h-[calc(100vh-6rem)] flex flex-col">
+      <div className="flex items-center justify-between mb-4 sm:mb-6 px-2">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-cyan-500/20 flex items-center justify-center border border-cyan-500/30">
+            <Bot className="text-cyan-400 w-5 h-5 sm:w-6 sm:h-6" />
           </div>
           <div>
-            <h2 className="text-xl font-bold text-white">Enneagram Guide</h2>
-            <p className="text-xs text-gray-500 font-mono uppercase tracking-widest">AI Discovery Assistant</p>
+            <h2 className="text-lg sm:text-xl font-bold text-white leading-tight">Enneagram Guide</h2>
+            <p className="text-[10px] text-gray-500 font-mono uppercase tracking-widest">AI Discovery Assistant</p>
           </div>
         </div>
         <button 
@@ -83,13 +83,13 @@ const EnneagramChatbot = () => {
           className="p-2 rounded-lg hover:bg-white/5 text-gray-400 hover:text-white transition-colors"
           title="Reset Conversation"
         >
-          <RefreshCcw className="w-5 h-5" />
+          <RefreshCcw className="w-4 h-4 sm:w-5 h-5" />
         </button>
       </div>
 
       <div 
         ref={scrollRef}
-        className="flex-1 overflow-y-auto space-y-6 pr-4 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent"
+        className="flex-1 overflow-y-auto space-y-4 sm:space-y-6 px-2 sm:pr-4 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent"
       >
         <AnimatePresence initial={false}>
           {messages.map((m, i) => (
@@ -99,15 +99,15 @@ const EnneagramChatbot = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}
             >
-              <div className={`max-w-[80%] flex gap-3 ${m.role === 'user' ? 'flex-row-reverse' : ''}`}>
-                <div className={`w-8 h-8 rounded-lg flex-shrink-0 flex items-center justify-center border ${
+              <div className={`max-w-[90%] sm:max-w-[80%] flex gap-2 sm:gap-3 ${m.role === 'user' ? 'flex-row-reverse' : ''}`}>
+                <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex-shrink-0 flex items-center justify-center border ${
                   m.role === 'user' 
                     ? 'bg-white/10 border-white/20' 
                     : 'bg-cyan-500/10 border-cyan-500/20'
                 }`}>
-                  {m.role === 'user' ? <User className="w-4 h-4 text-white" /> : <Bot className="w-4 h-4 text-cyan-400" />}
+                  {m.role === 'user' ? <User className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" /> : <Bot className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400" />}
                 </div>
-                <div className={`p-4 rounded-2xl text-sm leading-relaxed ${
+                <div className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl text-xs sm:text-sm leading-relaxed ${
                   m.role === 'user' 
                     ? 'bg-white/10 text-white rounded-tr-none' 
                     : 'bg-white/5 text-gray-200 border border-white/10 rounded-tl-none'
@@ -124,34 +124,34 @@ const EnneagramChatbot = () => {
             animate={{ opacity: 1 }}
             className="flex justify-start"
           >
-            <div className="flex gap-3 items-center bg-white/5 border border-white/10 p-4 rounded-2xl rounded-tl-none">
-              <Loader2 className="w-4 h-4 text-cyan-400 animate-spin" />
-              <span className="text-xs text-gray-400 font-mono">Analyzing psyche...</span>
+            <div className="flex gap-2 sm:gap-3 items-center bg-white/5 border border-white/10 p-3 sm:p-4 rounded-xl sm:rounded-2xl rounded-tl-none">
+              <Loader2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 animate-spin" />
+              <span className="text-[10px] sm:text-xs text-gray-400 font-mono">Analyzing psyche...</span>
             </div>
           </motion.div>
         )}
       </div>
 
-      <div className="mt-6 relative">
+      <div className="mt-4 sm:mt-6 relative px-2">
         <input
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && handleSend()}
           placeholder="Type your response..."
-          className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-6 pr-16 text-white placeholder-gray-600 focus:outline-none focus:border-cyan-500/50 transition-colors"
+          className="w-full bg-white/5 border border-white/10 rounded-xl sm:rounded-2xl py-3 sm:py-4 pl-4 sm:pl-6 pr-12 sm:pr-16 text-xs sm:text-sm text-white placeholder-gray-600 focus:outline-none focus:border-cyan-500/50 transition-colors"
         />
         <button
           onClick={handleSend}
           disabled={!input.trim() || isLoading}
-          className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-xl bg-cyan-500 text-black hover:bg-cyan-400 disabled:opacity-50 disabled:hover:bg-cyan-500 transition-all"
+          className="absolute right-5 top-1/2 -translate-y-1/2 p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-cyan-500 text-black hover:bg-cyan-400 disabled:opacity-50 disabled:hover:bg-cyan-500 transition-all"
         >
-          <Send className="w-5 h-5" />
+          <Send className="w-4 h-4 sm:w-5 h-5" />
         </button>
       </div>
       
-      <p className="mt-4 text-[10px] text-center text-gray-600 font-mono uppercase tracking-widest flex items-center justify-center gap-2">
-        <Sparkles className="w-3 h-3" /> Powered by Gemini Intelligence
+      <p className="mt-3 sm:mt-4 text-[9px] sm:text-[10px] text-center text-gray-600 font-mono uppercase tracking-widest flex items-center justify-center gap-2">
+        <Sparkles className="w-2.5 h-2.5 sm:w-3 h-3" /> Powered by Gemini Intelligence
       </p>
     </div>
   );

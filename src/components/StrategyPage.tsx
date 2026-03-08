@@ -6,11 +6,11 @@ import { enneagramData } from '../data/enneagram';
 const StrategyPage = () => {
   return (
     <div className="max-w-7xl mx-auto w-full space-y-12 pb-24">
-      <div className="text-center max-w-3xl mx-auto space-y-4">
-        <h1 className="text-4xl md:text-5xl font-black text-white tracking-tighter uppercase">
+      <div className="text-center max-w-3xl mx-auto space-y-2 sm:space-y-4">
+        <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-white tracking-tighter uppercase">
           General Combat Doctrine
         </h1>
-        <p className="text-gray-400 text-lg">
+        <p className="text-gray-400 text-sm sm:text-lg">
           Universal strategic frameworks for each Enneagram archetype across all gaming simulations.
         </p>
       </div>

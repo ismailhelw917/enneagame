@@ -4,20 +4,20 @@ import { Brain, Heart, Shield, Target, Zap, Activity } from 'lucide-react';
 
 const AboutEnneagram = () => {
   return (
-    <div className="max-w-6xl mx-auto px-6 py-12 text-gray-200">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 text-gray-200">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="space-y-12"
+        className="space-y-8 sm:space-y-12"
       >
-        <section className="text-center space-y-4">
-          <h1 className="text-5xl font-serif italic text-white tracking-tight">What is the Enneagram?</h1>
-          <p className="text-xl text-gray-400 font-light max-w-2xl mx-auto">
+        <section className="text-center space-y-3 sm:space-y-4">
+          <h1 className="text-3xl sm:text-5xl font-serif italic text-white tracking-tight">What is the Enneagram?</h1>
+          <p className="text-base sm:text-xl text-gray-400 font-light max-w-2xl mx-auto px-2">
             A profound map of the human psyche, describing nine distinct personality types and their complex interconnections.
           </p>
         </section>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8">
           <div className="p-6 rounded-2xl bg-white/5 border border-white/10 space-y-4">
             <div className="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center">
               <Brain className="text-cyan-400 w-6 h-6" />
