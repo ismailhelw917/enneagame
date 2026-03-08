@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Target, Shield, Zap, Brain, Heart, Sword, Info } from 'lucide-react';
+import { Shield, Sword, Info } from 'lucide-react';
 import { enneagramData } from '../data/enneagram';
+import { BannerAd } from './BannerAd';
 
 const StrategyPage = () => {
   return (
@@ -14,6 +15,8 @@ const StrategyPage = () => {
           Universal strategic frameworks for each Enneagram archetype across all gaming simulations.
         </p>
       </div>
+
+      <BannerAd type="internal" className="my-8" />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {enneagramData.map((type) => (

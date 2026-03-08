@@ -11,6 +11,24 @@ export interface Type {
     weaknesses: string;
     advantage: string;
   };
+  intel: {
+    tiltFactor: string;
+    teamSynergy: string;
+    growthPath: string;
+    stressResponse: string;
+    winCondition: string;
+    stats: {
+      mechanics: number;
+      strategy: number;
+      comms: number;
+      mental: number;
+      adaptability: number;
+      clutchFactor: number;
+      mapAwareness: number;
+      resourceEfficiency: number;
+      tiltResistance: number;
+    };
+  };
 }
 
 export interface GameStrategy {

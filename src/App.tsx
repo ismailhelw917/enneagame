@@ -3,53 +3,16 @@ import { Link, useLocation } from 'react-router-dom';
 import PrivacyPage from './pages/PrivacyPage';
 import AboutEnneagram from './pages/AboutEnneagram';
 import EnneagramChatbot from './pages/EnneagramChatbot';
+import InDepthIntel from './pages/InDepthIntel';
+import { BannerAd } from './components/BannerAd';
 import StrategyPage from './components/StrategyPage';
+import ShareButton from './components/ShareButton';
 import Footer from './components/Footer';
+import { analytics } from './services/analyticsService';
 import { motion, AnimatePresence } from 'motion/react';
-import { Shield, Brain, Heart, Crosshair, Zap, Activity, Target, Sword, Search, Play, ArrowLeft, Monitor } from 'lucide-react';
+import { Crosshair, Zap, Target, Sword, Search, ArrowLeft } from 'lucide-react';
 import { GameStrategy } from './data/types';
 import { enneagramData, gameStrategies } from './data/enneagram';
-
-const AdUnit = () => {
-  const adRef = React.useRef<HTMLModElement>(null);
-
-  React.useEffect(() => {
-    const initAd = () => {
-      try {
-        // Only push if the element exists and hasn't been initialized yet
-        if (adRef.current && !adRef.current.hasAttribute('data-adsbygoogle-status')) {
-          // @ts-ignore
-          (window.adsbygoogle = window.adsbygoogle || []).push({});
-        }
-      } catch (e) {
-        // Suppress the specific "already have ads" error which is common in SPAs
-        if (e instanceof Error && !e.message.includes("already have ads")) {
-          console.error('AdSense error:', e);
-        }
-      }
-    };
-
-    // Small delay to ensure script is ready and DOM is stable
-    const timer = setTimeout(initAd, 200);
-    return () => clearTimeout(timer);
-  }, []);
-
-  return (
-    <div className="max-w-7xl mx-auto px-4 mt-12 mb-8">
-      <div className="w-full min-h-[100px] bg-white/5 border border-white/10 rounded-xl overflow-hidden flex flex-col items-center justify-center p-4">
-        <span className="text-[10px] font-mono text-gray-600 uppercase tracking-widest mb-2">Sponsored Intelligence</span>
-        <ins 
-             ref={adRef}
-             className="adsbygoogle"
-             style={{ display: 'block', width: '100%' }}
-             data-ad-client="ca-pub-0000000000000000"
-             data-ad-slot="0000000000"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-      </div>
-    </div>
-  );
-};
 
 function App() {
   const [selectedType, setSelectedType] = useState<number | null>(null);
@@ -60,21 +23,17 @@ function App() {
 
   const isPrivacyPage = location.pathname === '/privacy';
 
+  React.useEffect(() => {
+    const pageName = isPrivacyPage ? 'Privacy' : activeTab.charAt(0).toUpperCase() + activeTab.slice(1);
+    analytics.trackPageView(pageName);
+  }, [activeTab, isPrivacyPage]);
+
   const getCenterColor = (center: string) => {
     switch (center) {
       case 'Head': return 'text-cyan-400 border-cyan-400/30 bg-cyan-950/30';
       case 'Heart': return 'text-yellow-400 border-yellow-400/30 bg-yellow-950/30';
       case 'Gut': return 'text-red-400 border-red-400/30 bg-red-950/30';
       default: return 'text-gray-400';
-    }
-  };
-
-  const getCenterIcon = (center: string) => {
-    switch (center) {
-      case 'Head': return <Brain className="w-4 h-4" />;
-      case 'Heart': return <Heart className="w-4 h-4" />;
-      case 'Gut': return <Shield className="w-4 h-4" />;
-      default: return null;
     }
   };
 
@@ -96,7 +55,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
           <Link to="/" className="flex items-center gap-2 cursor-pointer shrink-0" onClick={() => { setActiveTab('about'); setSelectedGame(null); }}>
             <Target className="w-6 h-6 text-cyan-500" />
-            <span className="font-mono font-bold tracking-tighter text-lg sm:text-xl hidden xs:block">Enneagram & Games</span>
+            <span className="font-mono font-bold tracking-tighter text-lg sm:text-xl hidden xs:block">Enneagaming</span>
           </Link>
           <nav className="flex gap-1 bg-white/5 p-1 rounded-lg overflow-x-auto no-scrollbar scroll-smooth">
             <button
@@ -129,11 +88,23 @@ function App() {
             >
               AI Guide
             </button>
+            <button
+              onClick={() => { setActiveTab('intel'); setSelectedGame(null); }}
+              className={`px-3 sm:px-4 py-1.5 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeTab === 'intel' ? 'bg-white/10 text-white shadow-sm' : 'text-gray-400 hover:text-white'}`}
+            >
+              Intel
+            </button>
           </nav>
+          <div className="flex items-center gap-2">
+            <ShareButton />
+          </div>
         </div>
       </header>
 
-      <main className="flex-1 flex flex-col h-[calc(100vh-4rem)] overflow-hidden">
+      <main className="flex-1 flex flex-col h-[calc(100vh-4rem)] overflow-hidden relative">
+        <div className="fixed bottom-20 right-6 z-[60] md:hidden">
+          <ShareButton />
+        </div>
         <AnimatePresence mode="wait">
           {activeTab === 'about' ? (
             <motion.div
@@ -151,9 +122,19 @@ function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="flex-1"
+              className="flex-1 flex flex-col overflow-hidden"
             >
               <EnneagramChatbot />
+            </motion.div>
+          ) : activeTab === 'intel' ? (
+            <motion.div
+              key="intel"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="flex-1 overflow-y-auto"
+            >
+              <InDepthIntel />
             </motion.div>
           ) : activeTab === 'synthesis' ? (
             <motion.div
@@ -161,17 +142,17 @@ function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="flex flex-col h-full items-center justify-start pt-6 md:pt-20 p-4 overflow-y-auto"
+              className="flex flex-col h-full items-center justify-center pt-2 md:pt-20 p-4 overflow-hidden"
             >
-              <div className="text-center max-w-3xl mx-auto space-y-2 mb-6 md:mb-10 relative z-20">
+              <div className="text-center max-w-3xl mx-auto space-y-1 mb-2 md:mb-10 relative z-20">
                 <h1 className="text-xl md:text-4xl font-black tracking-tight text-white uppercase italic leading-none">
                   Enneagram <span className="text-cyan-500">Gaming</span> Theory
                 </h1>
               </div>
 
               {/* Enneagram Geometry */}
-              <div className="flex flex-col items-center justify-center flex-1 w-full max-h-[50vh] md:max-h-[65vh] relative z-10">
-                <div className="relative w-full max-w-lg md:max-w-2xl aspect-square">
+              <div className="flex flex-col items-center justify-center flex-1 w-full max-h-[60vh] md:max-h-[65vh] relative z-10">
+                <div className="relative w-full max-w-[85vw] md:max-w-2xl aspect-square">
                   <svg viewBox="-300 -300 600 600" className="w-full h-full drop-shadow-2xl overflow-visible">
                     {/* Circle */}
                     <circle cx="0" cy="0" r="150" fill="none" stroke="currentColor" strokeWidth="1" className="text-white/20" />
@@ -291,7 +272,7 @@ function App() {
                   </svg>
                 </div>
                 
-                <p className="mt-4 text-[10px] font-mono text-gray-500 animate-pulse">
+                <p className="mt-2 text-[10px] font-mono text-gray-500 animate-pulse">
                   CLICK NODE TO ACCESS INTEL
                 </p>
               </div>
@@ -543,7 +524,12 @@ function App() {
           </motion.div>
         )}
       </AnimatePresence>
-      <AdUnit />
+      {activeTab !== 'synthesis' && (
+        <>
+          <BannerAd type="adsense" className="mt-12 mb-4" />
+          <BannerAd type="network" className="mb-12" />
+        </>
+      )}
       <Footer />
         </>
       )}

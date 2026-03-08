@@ -13,6 +13,14 @@ export const enneagramData: Type[] = [
       strengths: "Excellent at executing complex mechanics perfectly. Diligent about macro-play and timing.",
       weaknesses: "Can tilt easily when teammates make 'stupid' mistakes. May become rigid in strategy.",
       advantage: "Use your perfectionism to master high-skill floor champions. Lead by example with perfect rotations."
+    },
+    intel: {
+      tiltFactor: "Teammates ignoring established strategy or making sloppy mechanical errors.",
+      teamSynergy: "Works best with Type 6 (Loyalists) who follow the plan and Type 3 (Achievers) who execute effectively.",
+      growthPath: "Learn to accept that 'good enough' is sometimes optimal in fast-paced games. Focus on what you can control.",
+      stressResponse: "Becomes overly critical, micromanaging teammates' every move and losing sight of the big picture.",
+      winCondition: "A perfectly executed team strategy where everyone plays their role with discipline.",
+      stats: { mechanics: 85, strategy: 95, comms: 90, mental: 70, adaptability: 60, clutchFactor: 75, mapAwareness: 92, resourceEfficiency: 98, tiltResistance: 65 }
     }
   },
   {
@@ -27,6 +35,14 @@ export const enneagramData: Type[] = [
       strengths: "Exceptional map awareness regarding teammate health/status. Selfless peeling.",
       weaknesses: "May sacrifice their own farm/life unnecessarily to save a bad teammate. Can get resentful if help isn't acknowledged.",
       advantage: "Play enchanters or utility tanks. Your natural instinct to track ally needs makes you the ultimate force multiplier."
+    },
+    intel: {
+      tiltFactor: "Teammates being ungrateful or toxic despite your efforts to save them.",
+      teamSynergy: "Synergizes with Type 8 (Challengers) who protect them and Type 3 (Achievers) who they can enable to carry.",
+      growthPath: "Learn to prioritize your own survival and resources when it's strategically necessary. You can't help if you're dead.",
+      stressResponse: "Becomes intrusive and demanding of attention, potentially over-extending to 'force' a save that isn't there.",
+      winCondition: "Keeping the star player alive through impossible odds to win the final teamfight.",
+      stats: { mechanics: 70, strategy: 80, comms: 95, mental: 85, adaptability: 75, clutchFactor: 80, mapAwareness: 88, resourceEfficiency: 70, tiltResistance: 90 }
     }
   },
   {
@@ -41,6 +57,14 @@ export const enneagramData: Type[] = [
       strengths: "High mechanical skill, driven to climb ranked ladders. Adaptable to meta changes.",
       weaknesses: "Can be a 'KDA player' (caring more about stats than winning). Prone to burnout.",
       advantage: "Focus on meta-defining carries. Your drive to be the best makes you excellent at mastering the strongest tools in the current patch."
+    },
+    intel: {
+      tiltFactor: "Falling behind in stats or being outplayed in a 1v1 duel.",
+      teamSynergy: "Pairs well with Type 2 (Helpers) for enabling and Type 1 (Reformers) for structured play.",
+      growthPath: "Focus on the 'invisible' wins—map pressure, objective control—rather than just the scoreboard.",
+      stressResponse: "Becomes hyper-competitive and potentially toxic, blaming others to preserve their own image of competence.",
+      winCondition: "Topping the damage charts and being the clear MVP of the match.",
+      stats: { mechanics: 95, strategy: 75, comms: 80, mental: 65, adaptability: 90, clutchFactor: 98, mapAwareness: 70, resourceEfficiency: 85, tiltResistance: 55 }
     }
   },
   {
@@ -55,6 +79,14 @@ export const enneagramData: Type[] = [
       strengths: "Creative pathing and build theories. Masters niche characters no one knows how to counter.",
       weaknesses: "Refuses to play 'boring' meta picks. Mood affects performance heavily.",
       advantage: "Embrace the 'One-Trick' lifestyle. Your unique playstyle confuses enemies who are used to standard meta gameplay."
+    },
+    intel: {
+      tiltFactor: "Being forced into a 'standard' role or having their unique build criticized.",
+      teamSynergy: "Works with Type 5 (Investigators) who appreciate their unique insights and Type 9 (Peacemakers) who let them be themselves.",
+      growthPath: "Understand that sometimes the 'boring' play is the winning play. Don't let your mood dictate your mechanical consistency.",
+      stressResponse: "Withdraws emotionally, potentially 'soft-throwing' by playing too passively or ignoring team calls.",
+      winCondition: "Winning a game using a strategy or character that everyone else said was 'trash'.",
+      stats: { mechanics: 88, strategy: 85, comms: 60, mental: 55, adaptability: 70, clutchFactor: 92, mapAwareness: 75, resourceEfficiency: 80, tiltResistance: 45 }
     }
   },
   {
@@ -69,6 +101,14 @@ export const enneagramData: Type[] = [
       strengths: "Deep knowledge of game mechanics and hidden interactions. Calm under pressure.",
       weaknesses: "Analysis paralysis. May farm/lurk too long instead of joining team fights.",
       advantage: "Play macro-heavy roles. Your ability to track enemy cooldowns and jungle timers mentally is your superpower."
+    },
+    intel: {
+      tiltFactor: "Chaotic team environments where information is withheld or comms are cluttered.",
+      teamSynergy: "Synergizes with Type 8 (Challengers) who provide the pressure they need to work and Type 6 (Loyalists) for shared intel.",
+      growthPath: "Practice 'good enough' decision making. Sometimes a fast, imperfect play is better than a perfect play that comes too late.",
+      stressResponse: "Becomes detached and cynical, retreating into solo-play and ignoring the team's immediate needs.",
+      winCondition: "Out-thinking the opponent through superior macro and knowledge of hidden mechanics.",
+      stats: { mechanics: 80, strategy: 98, comms: 70, mental: 90, adaptability: 75, clutchFactor: 70, mapAwareness: 98, resourceEfficiency: 95, tiltResistance: 95 }
     }
   },
   {
@@ -83,6 +123,14 @@ export const enneagramData: Type[] = [
       strengths: "Always checks bushes/corners. Excellent at predicting enemy ambushes. Loyal to the team plan.",
       weaknesses: "Hesitant to initiate without backup. Can be overly cautious.",
       advantage: "Play peel-oriented tanks or control mages. Your paranoia is a gift—you sense ganks before they happen. Communicate threats to your team."
+    },
+    intel: {
+      tiltFactor: "Unpredictable teammates or a lack of clear leadership/plan.",
+      teamSynergy: "Works best with Type 8 (Challengers) for strong leadership and Type 1 (Reformers) for clear rules.",
+      growthPath: "Learn to trust your own instincts more. You don't always need consensus to make a game-winning play.",
+      stressResponse: "Becomes hyper-vigilant and anxious, potentially flooding comms with every possible negative outcome.",
+      winCondition: "A stable, controlled game where the team sticks together and executes a safe plan.",
+      stats: { mechanics: 75, strategy: 85, comms: 92, mental: 80, adaptability: 65, clutchFactor: 65, mapAwareness: 95, resourceEfficiency: 88, tiltResistance: 85 }
     }
   },
   {
@@ -97,6 +145,14 @@ export const enneagramData: Type[] = [
       strengths: "Unpredictable movement. High APM (Actions Per Minute). Great at finding new angles.",
       weaknesses: "Overextends constantly. Gets bored holding angles/farming.",
       advantage: "Play high-mobility roamers. Your chaotic energy disrupts organized enemy teams. Keep moving, keep them guessing."
+    },
+    intel: {
+      tiltFactor: "Boring, slow-paced games or being forced to play a static, defensive role.",
+      teamSynergy: "Pairs well with Type 9 (Peacemakers) who follow their lead and Type 3 (Achievers) who can keep up with the pace.",
+      growthPath: "Practice patience. The most fun play isn't always the winning play. Learn to value the 'boring' parts of the game.",
+      stressResponse: "Becomes scattered and impulsive, taking unnecessary risks just to 'make something happen'.",
+      winCondition: "A fast-paced, high-kill game where they are constantly in the middle of the action.",
+      stats: { mechanics: 92, strategy: 70, comms: 85, mental: 60, adaptability: 98, clutchFactor: 85, mapAwareness: 80, resourceEfficiency: 65, tiltResistance: 70 }
     }
   },
   {
@@ -111,6 +167,14 @@ export const enneagramData: Type[] = [
       strengths: "Fearless initiation. Natural shot-calling ability. Mental fortitude.",
       weaknesses: "Can rage at passive teammates. May engage 1v5 thinking they can win.",
       advantage: "Take the lead. Your decisiveness wins games in solo queue where hesitation is fatal. Play engage champions who dictate the pace."
+    },
+    intel: {
+      tiltFactor: "Passive teammates who refuse to follow their lead or 'soft' playstyles.",
+      teamSynergy: "Synergizes with Type 6 (Loyalists) who follow their lead and Type 2 (Helpers) who keep them alive.",
+      growthPath: "Learn to lead with empathy. Not everyone has your mental fortitude; sometimes encouragement works better than a command.",
+      stressResponse: "Becomes aggressive and domineering, potentially alienating teammates and forcing bad fights.",
+      winCondition: "Dominating the map through sheer aggression and forced engagements.",
+      stats: { mechanics: 88, strategy: 85, comms: 98, mental: 95, adaptability: 80, clutchFactor: 95, mapAwareness: 85, resourceEfficiency: 75, tiltResistance: 98 }
     }
   },
   {
@@ -125,6 +189,14 @@ export const enneagramData: Type[] = [
       strengths: "Keeps team morale high. Highly adaptable to what the team needs. Doesn't tilt.",
       weaknesses: "Passive; may wait for others to make plays. Struggles to close out games aggressively.",
       advantage: "The ultimate 'Fill' player. Your ability to merge with the team's needs makes you the glue that holds a chaotic solo queue roster together."
+    },
+    intel: {
+      tiltFactor: "High-conflict team environments or toxic teammates fighting each other.",
+      teamSynergy: "Works with everyone, but especially Type 7 (Enthusiasts) who bring the energy and Type 8 (Challengers) who provide the direction.",
+      growthPath: "Practice being more assertive. Your opinion on the game state matters; don't just go with the flow if you see a mistake.",
+      stressResponse: "Becomes passive-aggressive or completely disengaged, 'autopiloting' the game without real impact.",
+      winCondition: "A harmonious team environment where everyone is playing their best and the win comes naturally.",
+      stats: { mechanics: 78, strategy: 82, comms: 88, mental: 98, adaptability: 92, clutchFactor: 60, mapAwareness: 85, resourceEfficiency: 82, tiltResistance: 99 }
     }
   }
 ];

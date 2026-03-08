@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Target, Shield, FileText, Mail } from 'lucide-react';
+import ShareButton from './ShareButton';
 
 const Footer: React.FC = () => {
   return (
@@ -56,7 +57,8 @@ const Footer: React.FC = () => {
           <p className="text-[10px] font-mono text-gray-600 uppercase tracking-widest">
             © 2026 Tactical Intelligence Command. All rights reserved.
           </p>
-          <div className="flex gap-6">
+          <div className="flex gap-6 items-center">
+            <ShareButton />
             <span className="text-[10px] font-mono text-gray-700 uppercase tracking-widest">Status: Operational</span>
             <span className="text-[10px] font-mono text-gray-700 uppercase tracking-widest">v1.0.42-STABLE</span>
           </div>
