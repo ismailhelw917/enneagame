@@ -15,6 +15,7 @@ const getStripe = () => {
   return new Stripe(key);
 };
 
+// Start the server
 async function startServer() {
   const app = express();
   const PORT = 3000;
