@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Brain, Heart, Shield, Target, Zap, Activity } from 'lucide-react';
-import { BannerAd } from '../components/BannerAd';
 
 const AboutEnneagram = () => {
   return (
@@ -49,8 +48,6 @@ const AboutEnneagram = () => {
             </p>
           </div>
         </div>
-
-        <BannerAd type="internal" className="my-8" />
 
         <section className="space-y-6 bg-white/5 p-8 rounded-3xl border border-white/10">
           <h2 className="text-3xl font-serif italic text-white">Why it matters for Gaming</h2>

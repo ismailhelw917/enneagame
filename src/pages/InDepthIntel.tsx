@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { enneagramData } from '../data/enneagram';
-import { BannerAd } from '../components/BannerAd';
 import { BarChart3, Shield, Zap, Target, Brain, Activity, TrendingUp, Users, AlertTriangle, Lock, CreditCard, Sparkles, LayoutGrid, MousePointer2 } from 'lucide-react';
 
 const InDepthIntel = () => {
@@ -275,13 +274,10 @@ const InDepthIntel = () => {
                   </div>
                 </div>
               </div>
-              
-              <BannerAd type="network" className="mt-6" />
             </div>
           </motion.div>
         </AnimatePresence>
       </div>
-      <BannerAd type="adsense" className="mt-8" />
     </div>
   );
 };

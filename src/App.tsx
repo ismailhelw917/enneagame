@@ -4,7 +4,6 @@ import PrivacyPage from './pages/PrivacyPage';
 import AboutEnneagram from './pages/AboutEnneagram';
 import EnneagramChatbot from './pages/EnneagramChatbot';
 import InDepthIntel from './pages/InDepthIntel';
-import { BannerAd } from './components/BannerAd';
 import StrategyPage from './components/StrategyPage';
 import ShareButton from './components/ShareButton';
 import Footer from './components/Footer';
@@ -16,7 +15,7 @@ import { enneagramData, gameStrategies } from './data/enneagram';
 
 function App() {
   const [selectedType, setSelectedType] = useState<number | null>(null);
-  const [activeTab, setActiveTab] = useState<'about' | 'synthesis' | 'games' | 'strategy' | 'chatbot'>('about');
+  const [activeTab, setActiveTab] = useState<'about' | 'synthesis' | 'games' | 'strategy' | 'chatbot' | 'intel'>('about');
   const [selectedGame, setSelectedGame] = useState<GameStrategy | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const location = useLocation();
@@ -520,12 +519,6 @@ function App() {
           </motion.div>
         )}
       </AnimatePresence>
-      {activeTab !== 'synthesis' && (
-        <>
-          <BannerAd type="adsense" className="mt-12 mb-4" />
-          <BannerAd type="network" className="mb-12" />
-        </>
-      )}
       <Footer />
         </>
       )}
