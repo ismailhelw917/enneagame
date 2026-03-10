@@ -60,6 +60,40 @@ async function startServer() {
     }
   });
 
+  app.post("/api/create-donation-session", async (req, res) => {
+    try {
+      const { amount, label } = req.body;
+      const stripe = getStripe();
+      const baseUrl = process.env.APP_URL || `http://localhost:${PORT}`;
+      
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ["card"],
+        line_items: [
+          {
+            price_data: {
+              currency: "usd",
+              product_data: {
+                name: `Donation: ${label}`,
+                description: "Thank you for supporting Enneagaming research and development.",
+              },
+              unit_amount: amount,
+            },
+            quantity: 1,
+          },
+        ],
+        mode: "payment",
+        success_url: `${baseUrl}/donations?payment=success`,
+        cancel_url: `${baseUrl}/donations`,
+      });
+
+      res.json({ url: session.url });
+    } catch (error) {
+      const stripeError = error as Error;
+      console.error("Stripe error:", stripeError);
+      res.status(500).json({ error: stripeError.message });
+    }
+  });
+
   // Vite middleware for development
   if (process.env.NODE_ENV !== "production") {
     const { createServer: createViteServer } = await import("vite");

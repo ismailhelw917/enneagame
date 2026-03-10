@@ -4,6 +4,8 @@ import PrivacyPage from './pages/PrivacyPage';
 import AboutEnneagram from './pages/AboutEnneagram';
 import EnneagramChatbot from './pages/EnneagramChatbot';
 import InDepthIntel from './pages/InDepthIntel';
+import CharacterSelectionPage from './pages/CharacterSelectionPage';
+import DonationsPage from './pages/DonationsPage';
 import StrategyPage from './components/StrategyPage';
 import ShareButton from './components/ShareButton';
 import Footer from './components/Footer';
@@ -12,10 +14,11 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Crosshair, Zap, Target, Sword, Search, ArrowLeft } from 'lucide-react';
 import { GameStrategy } from './data/types';
 import { enneagramData, gameStrategies } from './data/enneagram';
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   const [selectedType, setSelectedType] = useState<number | null>(null);
-  const [activeTab, setActiveTab] = useState<'about' | 'synthesis' | 'games' | 'strategy' | 'chatbot' | 'intel'>('about');
+  const [activeTab, setActiveTab] = useState<'about' | 'synthesis' | 'games' | 'strategy' | 'chatbot' | 'intel' | 'characters' | 'donations'>('about');
   const [selectedGame, setSelectedGame] = useState<GameStrategy | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const location = useLocation();
@@ -82,6 +85,12 @@ function App() {
               Games
             </button>
             <button
+              onClick={() => { setActiveTab('characters'); setSelectedGame(null); }}
+              className={`px-3 sm:px-4 py-1.5 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeTab === 'characters' ? 'bg-white/10 text-white shadow-sm' : 'text-gray-400 hover:text-white'}`}
+            >
+              Characters
+            </button>
+            <button
               onClick={() => { setActiveTab('chatbot'); setSelectedGame(null); }}
               className={`px-3 sm:px-4 py-1.5 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeTab === 'chatbot' ? 'bg-white/10 text-white shadow-sm' : 'text-gray-400 hover:text-white'}`}
             >
@@ -92,6 +101,12 @@ function App() {
               className={`px-3 sm:px-4 py-1.5 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeTab === 'intel' ? 'bg-white/10 text-white shadow-sm' : 'text-gray-400 hover:text-white'}`}
             >
               Intel
+            </button>
+            <button
+              onClick={() => { setActiveTab('donations'); setSelectedGame(null); }}
+              className={`px-3 sm:px-4 py-1.5 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeTab === 'donations' ? 'bg-white/10 text-white shadow-sm' : 'text-gray-400 hover:text-white'}`}
+            >
+              Donate
             </button>
           </nav>
           <div className="flex items-center gap-2">
@@ -134,6 +149,26 @@ function App() {
               className="flex-1 overflow-y-auto"
             >
               <InDepthIntel />
+            </motion.div>
+          ) : activeTab === 'donations' ? (
+            <motion.div
+              key="donations"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="flex-1 overflow-y-auto"
+            >
+              <DonationsPage />
+            </motion.div>
+          ) : activeTab === 'characters' ? (
+            <motion.div
+              key="characters"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="flex-1 flex flex-col overflow-hidden"
+            >
+              <CharacterSelectionPage />
             </motion.div>
           ) : activeTab === 'synthesis' ? (
             <motion.div
@@ -520,6 +555,7 @@ function App() {
         )}
       </AnimatePresence>
       <Footer />
+      <Analytics />
         </>
       )}
     </div>
