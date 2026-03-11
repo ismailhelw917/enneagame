@@ -2,11 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Target, Shield, FileText, Mail } from 'lucide-react';
 import ShareButton from './ShareButton';
+import ExternalAdSlot from './ExternalAdSlot';
 
 const Footer: React.FC = () => {
   return (
     <footer className="border-t border-white/10 bg-[#0a0a0a] py-12 mt-24">
       <div className="max-w-7xl mx-auto px-4">
+        {/* External Ad Section - Leaderboard */}
+        <div className="mb-16">
+          <ExternalAdSlot id="footer-top-leaderboard" format="leaderboard" className="mb-4" />
+          <p className="text-center text-[8px] font-mono text-gray-700 uppercase tracking-widest">Advertisement</p>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="space-y-4 col-span-1 md:col-span-2">
             <div className="flex items-center gap-2">
@@ -62,6 +69,18 @@ const Footer: React.FC = () => {
             <span className="text-[10px] font-mono text-gray-700 uppercase tracking-widest">Status: Operational</span>
             <span className="text-[10px] font-mono text-gray-700 uppercase tracking-widest">v1.0.42-STABLE</span>
           </div>
+        </div>
+        
+        <div className="mt-12">
+          <ExternalAdSlot id="footer-bottom-banner" format="banner" className="mb-2" />
+          <p className="text-center text-[7px] font-mono text-gray-800 uppercase tracking-widest">Advertisement</p>
+        </div>
+        
+        <div className="mt-8 text-center">
+          <p className="text-[9px] font-mono text-gray-800 uppercase tracking-[0.2em]">
+            ADVERTISEMENT: ENHANCE YOUR COGNITIVE LOAD WITH TACTICAL SUPPLEMENTS. 
+            <a href="#" className="text-cyan-900 hover:text-cyan-700 ml-2 transition-colors">LEARN MORE</a>
+          </p>
         </div>
       </div>
     </footer>
