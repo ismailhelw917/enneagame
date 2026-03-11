@@ -6,6 +6,7 @@ import EnneagramChatbot from './pages/EnneagramChatbot';
 import InDepthIntel from './pages/InDepthIntel';
 import CharacterSelectionPage from './pages/CharacterSelectionPage';
 import DonationsPage from './pages/DonationsPage';
+import DomainSettingsPage from './pages/DomainSettingsPage';
 import StrategyPage from './components/StrategyPage';
 import ShareButton from './components/ShareButton';
 import Footer from './components/Footer';
@@ -18,7 +19,7 @@ import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   const [selectedType, setSelectedType] = useState<number | null>(null);
-  const [activeTab, setActiveTab] = useState<'about' | 'synthesis' | 'games' | 'strategy' | 'chatbot' | 'intel' | 'characters' | 'donations'>('about');
+  const [activeTab, setActiveTab] = useState<'about' | 'synthesis' | 'games' | 'strategy' | 'chatbot' | 'intel' | 'characters' | 'donations' | 'domain'>('about');
   const [selectedGame, setSelectedGame] = useState<GameStrategy | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const location = useLocation();
@@ -108,6 +109,12 @@ function App() {
             >
               Donate
             </button>
+            <button
+              onClick={() => { setActiveTab('domain'); setSelectedGame(null); }}
+              className={`px-3 sm:px-4 py-1.5 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeTab === 'domain' ? 'bg-white/10 text-white shadow-sm' : 'text-gray-400 hover:text-white'}`}
+            >
+              Domain
+            </button>
           </nav>
           <div className="flex items-center gap-2">
             <ShareButton />
@@ -159,6 +166,16 @@ function App() {
               className="flex-1 overflow-y-auto"
             >
               <DonationsPage />
+            </motion.div>
+          ) : activeTab === 'domain' ? (
+            <motion.div
+              key="domain"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="flex-1 overflow-y-auto"
+            >
+              <DomainSettingsPage />
             </motion.div>
           ) : activeTab === 'characters' ? (
             <motion.div

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Users, UserPlus, Shield, Zap, Target, Brain, Heart, Anchor, Search, ArrowLeft, Info, AlertTriangle, CheckCircle2, Trophy } from 'lucide-react';
+import { Users, UserPlus, Shield, Zap, Target, Brain, Heart, Anchor, Search, ArrowLeft, AlertTriangle, CheckCircle2, Trophy } from 'lucide-react';
 import { enneagramData } from '../data/enneagram';
 
 const CharacterSelectionPage = () => {
