@@ -14,16 +14,24 @@ async function startServer() {
 
   app.use(express.json());
 
+  app.use((req, res, next) => {
+    console.log(`Received request: ${req.method} ${req.url}`);
+    next();
+  });
+
   app.get("/api/health", (req, res) => {
     res.json({ status: "ok" });
   });
 
   // Stripe Routes
   app.post("/api/create-donation-session", async (req, res) => {
+    console.log("Received request for /api/create-donation-session");
     try {
       const { amount, label } = req.body;
+      console.log("Amount:", amount, "Label:", label);
       const stripe = getStripe();
       const baseUrl = process.env.APP_URL || `http://localhost:${PORT}`;
+      console.log("Base URL:", baseUrl);
       const session = await stripe.checkout.sessions.create({
         payment_method_types: ["card"],
         line_items: [{
@@ -38,8 +46,10 @@ async function startServer() {
         success_url: `${baseUrl}/donations?payment=success`,
         cancel_url: `${baseUrl}/donations`,
       });
+      console.log("Session created:", session.id);
       res.json({ url: session.url });
     } catch (error) {
+      console.error("Error creating donation session:", error);
       res.status(500).json({ error: (error as Error).message });
     }
   });

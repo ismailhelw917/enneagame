@@ -30,7 +30,7 @@ const DonationsPage = () => {
     setLoading(label);
     setError(null);
     try {
-      const response = await fetch('/api/create-donation-session', {
+      const response = await fetch(`${window.location.origin}/api/create-donation-session`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
