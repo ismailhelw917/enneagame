@@ -1,5 +1,7 @@
+import { Analytics } from "@vercel/analytics/react";
 import React, { useState, useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import BookRecommendations from './pages/BookRecommendations';
 import PrivacyPage from './pages/PrivacyPage';
 import AboutEnneagram from './pages/AboutEnneagram';
 import EnneagramChatbot from './pages/EnneagramChatbot';
@@ -16,7 +18,7 @@ import { enneagramData, gameStrategies } from './data/enneagram';
 
 function App() {
   const [selectedType, setSelectedType] = useState<number | null>(null);
-  const [activeTab, setActiveTab] = useState<'about' | 'synthesis' | 'games' | 'strategy' | 'chatbot' | 'intel' | 'characters'>('about');
+  const [activeTab, setActiveTab] = useState<'about' | 'synthesis' | 'games' | 'strategy' | 'chatbot' | 'intel' | 'characters' | 'books'>('about');
   const [selectedGame, setSelectedGame] = useState<GameStrategy | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const location = useLocation();
@@ -116,6 +118,13 @@ function App() {
             >
               Intel
             </Link>
+            <Link
+              to="/books"
+              onClick={() => { setActiveTab('books'); setSelectedGame(null); }}
+              className={`px-3 sm:px-4 py-1.5 rounded-md text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${activeTab === 'books' ? 'bg-white/10 text-white shadow-sm' : 'text-gray-400 hover:text-white'}`}
+            >
+              Books
+            </Link>
           </nav>
           <div className="flex items-center gap-2">
             <ShareButton />
@@ -167,6 +176,16 @@ function App() {
               className="flex-1 overflow-y-auto"
             >
               <DonationsPage />
+            </motion.div>
+          ) : activeTab === 'books' ? (
+            <motion.div
+              key="books"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="flex-1 overflow-y-auto"
+            >
+              <BookRecommendations />
             </motion.div>
           ) : activeTab === 'characters' ? (
             <motion.div
@@ -563,6 +582,7 @@ function App() {
         )}
       </AnimatePresence>
       {activeTab !== 'intel' && <Footer />}
+      <Analytics />
         </>
       )}
     </div>
