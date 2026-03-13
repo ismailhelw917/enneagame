@@ -14,16 +14,7 @@ async function startServer() {
 
   app.use(express.json());
 
-  app.use((req, res, next) => {
-    console.log(`Received request: ${req.method} ${req.url}`);
-    next();
-  });
-
-  app.get("/api/health", (req, res) => {
-    res.json({ status: "ok" });
-  });
-
-  // Stripe Routes
+  // API Routes
   app.all("/api/create-donation-session", async (req, res) => {
     console.log("Received request for /api/create-donation-session");
     try {
@@ -52,6 +43,20 @@ async function startServer() {
       console.error("Error creating donation session:", error);
       res.status(500).json({ error: (error as Error).message });
     }
+  });
+
+  app.get("/api/health", (req, res) => {
+    res.json({ status: "ok" });
+  });
+
+  app.all("/api/*", (req, res, next) => {
+    console.log(`API request: ${req.method} ${req.url}`);
+    next();
+  });
+
+  app.use((req, res, next) => {
+    console.log(`Received request: ${req.method} ${req.url}`);
+    next();
   });
 
   // Vite
