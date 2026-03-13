@@ -12,11 +12,16 @@ async function startServer() {
   const app = express();
   const PORT = 3000;
 
+  app.use((req, res, next) => {
+    console.log(`Received request: ${req.method} ${req.url}`);
+    next();
+  });
+
   app.use(express.json());
 
   // API Routes
-  app.all("/api/create-donation-session", async (req, res) => {
-    console.log("Received request for /api/create-donation-session");
+  app.all("/create-donation-session", async (req, res) => {
+    console.log("Received request for /create-donation-session");
     try {
       const { amount, label } = req.body;
       console.log("Amount:", amount, "Label:", label);
@@ -45,11 +50,11 @@ async function startServer() {
     }
   });
 
-  app.get("/api/health", (req, res) => {
+  app.get("/health", (req, res) => {
     res.json({ status: "ok" });
   });
 
-  app.all("/api/*", (req, res, next) => {
+  app.all("/*", (req, res, next) => {
     console.log(`API request: ${req.method} ${req.url}`);
     next();
   });
