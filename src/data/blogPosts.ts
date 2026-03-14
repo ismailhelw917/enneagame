@@ -17,11 +17,11 @@ export const blogPosts: BlogPost[] = [
     date: '2026-03-14',
     excerpt: "Discover how your core Enneagram type shapes the way you approach your favorite games, from strategy to team dynamics.",
     seoDescription: "Learn how your Enneagram type influences your gaming playstyle. Explore the intersection of personality and gaming performance.",
-    image: "/Images/blog-1.jpg",
+    image: "/Images/picture1.jpg",
     content: `
 Gaming is more than just pressing buttons; it's an expression of who we are. Have you ever wondered why you gravitate toward specific roles, like the selfless healer or the aggressive carry? The answer might lie in your Enneagram type. By understanding the intersection of personality and gaming, you can unlock new levels of performance and enjoyment.
 
-![Gaming Personality](/Images/blog-1.jpg)
+![Gaming Personality](/Images/picture1.jpg)
 
 ### The Core Motivations
 At the heart of the Enneagram are core motivations—fears and desires that drive our behavior. These same motivations translate directly into the digital arena.
@@ -55,11 +55,11 @@ By aligning your gaming habits with your core personality, you aren't just playi
     date: '2026-03-15',
     excerpt: "Struggling with frustration when things go wrong? Learn how Type 1s can master tilt and maintain focus.",
     seoDescription: "Tilt management tips for Type 1 Enneagram gamers. Learn how to handle frustration and maintain focus during intense gaming sessions.",
-    image: "/Images/blog-2.jpg",
+    image: "/Images/picture2.jpg",
     content: `
 For the Type 1 gamer, the world is a place of order, logic, and standards. When you enter a game, you have a clear vision of how it *should* be played. When teammates make mistakes or the game doesn't go according to plan, the frustration—or "tilt"—can be overwhelming.
 
-<img src="/Images/blog-2.jpg" alt="Frustrated Gamer" referrerPolicy="no-referrer" className="w-full rounded-2xl my-6" />
+<img src="/Images/picture2.jpg" alt="Frustrated Gamer" referrerPolicy="no-referrer" className="w-full rounded-2xl my-6" />
 
 ### The Perfectionist's Dilemma
 Type 1s are driven by a desire to be good and do right. In gaming, this translates to a high skill floor and a demand for flawless execution. When things go wrong, it feels like a personal affront to the game's logic. This is the root of your tilt. It's not just about losing; it's about the **failure to meet the standard**.
@@ -91,11 +91,11 @@ Also check out this essential guide:
     date: '2026-03-16',
     excerpt: "Type 7s thrive on variety and speed. Here's why high-mobility heroes are the perfect fit for your playstyle.",
     seoDescription: "Why Type 7 Enneagram gamers need high-mobility heroes. Explore the science of stimulation and playstyle optimization.",
-    image: "/Images/blog-3.jpg",
+    image: "/Images/picture3.jpg",
     content: `
 If you are a Type 7 (The Enthusiast), you know the feeling: the need for speed, the craving for variety, and the absolute horror of a slow-paced, predictable game. You are the kinetic disruptor of the gaming world, and your playstyle should reflect that.
 
-<img src="/Images/blog-3.jpg" alt="High Mobility Hero" referrerPolicy="no-referrer" className="w-full rounded-2xl my-6" />
+<img src="/Images/picture3.jpg" alt="High Mobility Hero" referrerPolicy="no-referrer" className="w-full rounded-2xl my-6" />
 
 ### The Craving for Stimulation
 Type 7s are motivated by a need for stimulation and a fear of being deprived. In gaming, this translates to a need for constant engagement. If you are stuck in a role that requires sitting still and waiting for an opportunity, you will quickly become bored, distracted, and ultimately, ineffective.

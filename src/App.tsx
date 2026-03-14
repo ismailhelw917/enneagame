@@ -185,16 +185,6 @@ function App() {
             >
               <DonationsPage />
             </motion.div>
-          ) : activeTab === 'admin' ? (
-            <motion.div
-              key="admin"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="flex-1 overflow-y-auto"
-            >
-              <AdminPage />
-            </motion.div>
           ) : activeTab === 'blog' ? (
             <motion.div
               key="blog"
