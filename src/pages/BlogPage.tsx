@@ -4,6 +4,7 @@ import { BookOpen, ArrowLeft, Calendar } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import { blogPosts, BlogPost } from '../data/blogPosts';
+import CommentSection from '../components/CommentSection';
 
 const BlogPage: React.FC = () => {
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
@@ -91,6 +92,7 @@ const BlogPage: React.FC = () => {
                   {selectedPost.content}
                 </ReactMarkdown>
               </div>
+              <CommentSection postId={selectedPost.id} />
             </motion.div>
           )}
         </AnimatePresence>

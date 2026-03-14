@@ -1,0 +1,33 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper Functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // Comment Validator
+    function isValidComment(data) {
+      return data.keys().hasAll(['postId', 'userId', 'userName', 'userPhoto', 'text', 'createdAt']) &&
+             data.keys().hasOnly(['postId', 'userId', 'userName', 'userPhoto', 'text', 'createdAt']) &&
+             data.postId is string && data.postId.size() > 0 &&
+             data.userId is string &&
+             data.userName is string && data.userName.size() > 0 &&
+             data.userPhoto is string &&
+             data.text is string && data.text.size() > 0 && data.text.size() < 1000 &&
+             data.createdAt is number;
+    }
+
+    match /comments/{commentId} {
+      allow read: if true;
+      allow create: if isValidComment(request.resource.data);
+      allow update: if false;
+      allow delete: if false;
+    }
+  }
+}
