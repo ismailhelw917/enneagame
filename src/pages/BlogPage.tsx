@@ -80,7 +80,16 @@ const BlogPage: React.FC = () => {
                 {selectedPost.date}
               </div>
               <div className="markdown-body text-gray-300 leading-relaxed text-lg space-y-6">
-                <ReactMarkdown rehypePlugins={[rehypeRaw]}>{selectedPost.content}</ReactMarkdown>
+                <ReactMarkdown
+                  rehypePlugins={[rehypeRaw]}
+                  components={{
+                    img: ({ ...props }) => (
+                      <img {...props} referrerPolicy="no-referrer" />
+                    ),
+                  }}
+                >
+                  {selectedPost.content}
+                </ReactMarkdown>
               </div>
             </motion.div>
           )}

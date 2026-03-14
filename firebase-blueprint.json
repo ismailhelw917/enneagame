@@ -1,0 +1,25 @@
+{
+  "entities": {
+    "BlogPost": {
+      "title": "BlogPost",
+      "description": "A blog post about Enneagram and gaming.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "The title of the blog post." },
+        "slug": { "type": "string", "description": "A URL-friendly version of the title." },
+        "date": { "type": "string", "description": "The date of the post." },
+        "excerpt": { "type": "string", "description": "A short summary of the post." },
+        "seoDescription": { "type": "string", "description": "SEO description." },
+        "image": { "type": "string", "description": "URL of the post image." },
+        "content": { "type": "string", "description": "The full content of the post." }
+      },
+      "required": ["title", "slug", "date", "excerpt", "content"]
+    }
+  },
+  "firestore": {
+    "/blogPosts/{postId}": {
+      "schema": { "$ref": "BlogPost" },
+      "description": "Collection of blog posts."
+    }
+  }
+}
