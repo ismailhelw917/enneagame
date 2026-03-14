@@ -11,7 +11,7 @@
     "start": "node server.ts"
   },
   "dependencies": {
-    "@google/genai": "latest",
+    "@google/genai": "^1.45.0",
     "@tailwindcss/vite": "^4.2.1",
     "@vercel/analytics": "^2.0.1",
     "express": "^4.18.2",

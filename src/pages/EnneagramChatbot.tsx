@@ -28,9 +28,12 @@ const EnneagramChatbot = () => {
     setMessages(prev => [...prev, { role: 'user', text: userMessage }]);
     setIsLoading(true);
     setIsThinking(true);
-    analytics.trackEvent('chat_message_sent', { length: userMessage.length });
+    analytics.trackEvent('chat_message_sent', { length: userMessage.length, text: userMessage });
 
     try {
+      if (!process.env.GEMINI_API_KEY) {
+        throw new Error("GEMINI_API_KEY is missing.");
+      }
       const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
       
       const history = messages.slice(0, -1).map(m => ({
@@ -39,7 +42,7 @@ const EnneagramChatbot = () => {
       }));
 
       const response = await ai.models.generateContent({
-        model: "gemini-3.1-pro-preview",
+        model: "gemini-3-flash-preview",
         contents: [
           ...history.map(h => ({ role: h.role as "user" | "model", parts: h.parts })),
           { role: "user", parts: [{ text: userMessage }] }
@@ -64,11 +67,11 @@ Operational Guidelines:
 
       const botText = response.text || "Tactical error: Connection lost. Please re-establish link.";
       setMessages(prev => [...prev, { role: 'bot', text: botText }]);
-      analytics.trackEvent('chat_response_received', { length: botText.length });
+      analytics.trackEvent('chat_response_received', { length: botText.length, text: botText });
     } catch (error) {
       console.error("Chatbot error:", error);
       analytics.trackError(error as Error, 'Chatbot');
-      setMessages(prev => [...prev, { role: 'bot', text: "System disruption detected. My neural pathways are currently recalibrating. Please try again." }]);
+      setMessages(prev => [...prev, { role: 'bot', text: `System disruption detected: ${error instanceof Error ? error.message : String(error)}. Please try again.` }]);
     } finally {
       setIsLoading(false);
       setIsThinking(false);
