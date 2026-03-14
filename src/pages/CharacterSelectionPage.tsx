@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Users, UserPlus, Shield, Zap, Target, Brain, Heart, Anchor, Search, ArrowLeft, AlertTriangle, CheckCircle2, Trophy } from 'lucide-react';
+import { Users, UserPlus, Shield, Zap, Target, Brain, Heart, Anchor, Search, ArrowLeft, AlertTriangle, CheckCircle2, Trophy, ArrowDown } from 'lucide-react';
 import { enneagramData } from '../data/enneagram';
 
 const CharacterSelectionPage = () => {
   const [viewingTypeId, setViewingTypeId] = useState<number | null>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   const getCenterColor = (center: string) => {
     switch (center) {
@@ -161,7 +162,10 @@ const CharacterSelectionPage = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 overflow-y-auto pb-12 pr-2 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+            <div 
+              ref={scrollRef}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 overflow-y-auto pb-12 pr-2 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent"
+            >
               {enneagramData.map((type) => {
                 const advice = characterAdvice.find(a => a.typeId === type.id);
                 return (
@@ -224,6 +228,12 @@ const CharacterSelectionPage = () => {
                 );
               })}
             </div>
+            <button
+              className="md:hidden fixed bottom-6 right-6 z-50 bg-cyan-600 text-white p-4 rounded-full shadow-lg"
+              onClick={() => scrollRef.current?.scrollBy({ top: 300, behavior: 'smooth' })}
+            >
+              <ArrowDown className="w-6 h-6" />
+            </button>
           </motion.div>
         ) : (
           <motion.div
