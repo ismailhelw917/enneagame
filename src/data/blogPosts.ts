@@ -124,5 +124,58 @@ For a deeper dive into understanding your personality type, check out [My Enneag
 
 Embrace your need for stimulation, but master your impulsivity. When you do, you become an unstoppable force on the battlefield.
     `
+  },
+  {
+    id: '4',
+    title: "Finding Your Main: Why You Keep Switching Characters (And How to Stop)",
+    slug: 'finding-your-main-character-enneagram',
+    date: '2026-03-17',
+    excerpt: "Constantly switching mains? Your Enneagram type might be the reason. Learn how to find a character that truly resonates with your core motivations.",
+    seoDescription: "Learn why you keep switching mains in video games and how your Enneagram type can help you find the perfect character archetype to stick with.",
+    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop",
+    content: `
+Every gamer knows the struggle: you pick up a new character, have a few amazing games, declare them your new "main," and then... a week later, you're back at the character select screen, feeling unfulfilled. 
+
+Why does this happen? Why is it so hard to commit to one playstyle? The answer often lies in the disconnect between a character's mechanical design and your **Enneagram core motivations**.
+
+<img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop" alt="Gamer looking at screen" referrerPolicy="no-referrer" className="w-full rounded-2xl my-6" />
+
+### The Illusion of the "Meta"
+
+The most common mistake players make is choosing a main based purely on the current "meta" (Most Effective Tactics Available) or tier lists. While playing a strong character is helpful, if their playstyle directly conflicts with your psychological needs, you will inevitably burn out.
+
+*   **Type 2s (The Helper)** playing selfish, solo-carry assassins will feel disconnected from their team.
+*   **Type 5s (The Investigator)** playing high-chaos, reactive brawlers will feel overwhelmed and drained.
+*   **Type 8s (The Challenger)** playing passive, backline enchanters will feel powerless and frustrated.
+
+### Why Each Type Switches Mains
+
+Understanding *why* you drop a character is the first step to finding one you'll keep.
+
+#### The Identity Seekers (Types 2, 3, 4)
+*   **Type 2:** Switches when they feel their character isn't providing enough visible value or protection to their duo partner.
+*   **Type 3:** Switches the moment a character gets nerfed or feels "sub-optimal" for climbing the ranked ladder.
+*   **Type 4:** Switches when a character becomes too popular. They need a main that feels unique, misunderstood, or requires a highly specific, artistic playstyle.
+
+#### The Security Seekers (Types 5, 6, 7)
+*   **Type 5:** Switches when a character's mechanics feel "solved" or too simple. They crave complex kits with high skill ceilings to master.
+*   **Type 6:** Switches after a bad losing streak, seeking a "safer" pick with fewer bad matchups.
+*   **Type 7:** Switches simply out of boredom. They are the ultimate alt-aholics, constantly chasing the novelty of a new kit.
+
+#### The Autonomy Seekers (Types 8, 9, 1)
+*   **Type 8:** Switches if a character relies too heavily on teammates to engage or survive. They need self-sufficiency and the ability to force fights.
+*   **Type 9:** Switches if a character requires too much intense, high-conflict micro-management that disrupts their internal peace.
+*   **Type 1:** Switches when a character's kit feels "clunky," inconsistent, or relies too much on RNG (random number generation).
+
+### How to Finally Settle Down
+
+To find your true main, you need to look past the tier lists and examine the **fantasy** the character provides. 
+
+1.  **Consult the Intel:** Check our [Character Selection Guide](/characters) to find the archetypes that naturally align with your Enneagram type.
+2.  **Identify Your Core Need:** Do you need to protect? To dominate? To understand? To be unique? 
+3.  **Test for Resonance, Not Just Win Rate:** Play a character for 10 games. Don't look at your win/loss ratio. Ask yourself: *Did I enjoy how I interacted with the game world? Did my deaths feel fair? Did my victories feel earned?*
+
+When you find a character whose mechanical loop satisfies your psychological core desire, you won't just play better—you'll stop looking at the character select screen entirely.
+    `
   }
 ];

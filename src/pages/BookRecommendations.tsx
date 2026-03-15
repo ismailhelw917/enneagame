@@ -41,14 +41,14 @@ const BookRecommendations: React.FC = () => {
         </h1>
         <div className="grid gap-6">
           {books.map((book, index) => (
-            <div key={index} className="bg-white/5 p-6 rounded-xl border border-white/5 hover:border-white/10 transition-colors flex gap-6">
+            <div key={index} className="bg-white/5 p-6 rounded-xl border border-white/5 hover:border-white/10 transition-colors flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6">
               {book.image && (
                 book.link ? (
                   <a href={book.link} target="_blank" rel="noopener noreferrer">
                     <img 
                       src={book.image} 
                       alt={book.title} 
-                      className="w-24 h-36 object-cover rounded-md flex-shrink-0 hover:opacity-80 transition-opacity"
+                      className="w-32 h-48 sm:w-24 sm:h-36 object-cover rounded-md flex-shrink-0 hover:opacity-80 transition-opacity shadow-lg"
                       referrerPolicy="no-referrer"
                     />
                   </a>
@@ -56,7 +56,7 @@ const BookRecommendations: React.FC = () => {
                   <img 
                     src={book.image} 
                     alt={book.title} 
-                    className="w-24 h-36 object-cover rounded-md flex-shrink-0"
+                    className="w-32 h-48 sm:w-24 sm:h-36 object-cover rounded-md flex-shrink-0 shadow-lg"
                     referrerPolicy="no-referrer"
                   />
                 )
@@ -86,7 +86,7 @@ const BookRecommendations: React.FC = () => {
                     href={book.link} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-block bg-cyan-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-cyan-700 transition-colors w-fit"
+                    className="inline-block bg-cyan-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-cyan-700 transition-colors w-fit mx-auto sm:mx-0"
                   >
                     View on Amazon
                   </a>
