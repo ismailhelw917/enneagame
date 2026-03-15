@@ -186,7 +186,7 @@ function App() {
           </nav>
           <div className="flex items-center gap-2 relative">
             <ShareButton />
-            <div className="absolute top-[calc(100%+1.5rem)] right-0 z-50 flex flex-col gap-2">
+            <div className="absolute top-[calc(100%+1.5rem)] right-0 z-50 hidden md:flex flex-col gap-2">
               <button 
                 onClick={() => { setActiveTab('newsletter'); setSelectedGame(null); }}
                 className="bg-red-500 hover:bg-red-600 text-white px-3 sm:px-4 py-1.5 rounded-md text-xs sm:text-sm font-medium transition-colors flex items-center gap-2 shadow-lg whitespace-nowrap border border-red-400/30 w-full justify-center"
@@ -211,22 +211,6 @@ function App() {
       <main className="flex-1 flex flex-col h-[calc(100vh-4rem)] overflow-hidden relative">
         <div className="fixed bottom-20 right-6 z-[60] md:hidden flex flex-col gap-3">
           <ShareButton />
-          <button 
-            onClick={() => { setActiveTab('newsletter'); setSelectedGame(null); }}
-            className="bg-red-500 hover:bg-red-600 text-white p-3 rounded-full shadow-lg transition-colors flex items-center justify-center"
-            aria-label="Newsletter"
-          >
-            <Mail className="w-5 h-5" />
-          </button>
-          <a 
-            href="https://facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-[#1877F2] hover:bg-[#1864D9] text-white p-3 rounded-full shadow-lg transition-colors flex items-center justify-center"
-            aria-label="Facebook"
-          >
-            <Facebook className="w-5 h-5" />
-          </a>
         </div>
         <AnimatePresence mode="wait">
           {activeTab === 'about' ? (
